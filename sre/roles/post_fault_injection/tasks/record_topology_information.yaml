@@ -17,23 +17,9 @@
   tags:
     - post_fault_injection
 
-- name: Call the Topology APIs
-  uri:
-    url: "{{ topology_url }}/{{ item }}"
-    method: GET
-    return_content: yes
-    body_format: json
-    headers:
-      Content-Type: "application/json"
-  with_items:
-    - "nodes"
-    - "edges"
-    - "graph"
-    - "events"
-  register: topology_responses
-  retries: 10
-  delay: 5
-  until: topology_responses is succeeded
+- name: Call the Topology APIs (deprecated with wait 1 second)
+  ansible.builtin.pause:
+    seconds: 1
   tags:
     - post_fault_injection
 
