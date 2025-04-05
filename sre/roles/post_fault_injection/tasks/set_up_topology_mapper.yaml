@@ -9,9 +9,11 @@
     wait: true
   tags:
     - post_fault_injection
+    - topology_mapper
 
 - name: Pause for 5 minutes for the topology to be available
   ansible.builtin.pause:
     minutes: 5
   tags:
     - post_fault_injection
+    - topology_mapper
