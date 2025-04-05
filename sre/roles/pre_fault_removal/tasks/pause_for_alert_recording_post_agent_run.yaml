@@ -3,6 +3,5 @@
   pause:
     seconds: 600
   when: not sre_bench_runner
-  tags:
-    - pre_fault_removal
+  tags: [pre_fault_removal, no_scoring]
 
