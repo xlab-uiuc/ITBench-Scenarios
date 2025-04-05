@@ -115,6 +115,7 @@ ifeq ($(BENCHMARK_SCORING),true)
 	ansible-playbook -v base.yaml --tags "pre_fault_removal"
 else
 	ansible-playbook -v base.yaml --tags "pre_fault_removal" --skip-tags "no_scoring"
+endif
 ifeq ($(IS_DEBUG_SCENARIO),true)
 	ansible-playbook -v base.yaml --tags "incident_$(INCIDENT_NUMBER)" \
 		--extra-vars "debug=true" \
