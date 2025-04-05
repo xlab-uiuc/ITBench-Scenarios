@@ -4,7 +4,7 @@ Two new environment variables are introduced to expedite development and testing
 To turn off any topology mapper-related commands in the ansible playbooks, add `ENABLE_TOPOLOGY=false` before your `make` command.
 For example:
 ```bash
-INCIDENT_NUMBER=1 ENABLE_TOPOLOGY_MAPPER=false make remove_incident_fault
+INCIDENT_NUMBER=1 ENABLE_TOPOLOGY_MAPPER=false make inject_incident_fault
 ```
 
 To turn off the mandatory 600-second wait for benchmark scoring, add `BENCHMARK_SCORING=false` before your `make` command.
