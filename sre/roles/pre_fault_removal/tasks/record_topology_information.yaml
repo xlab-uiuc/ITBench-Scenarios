@@ -36,6 +36,7 @@
   until: topology_responses is succeeded
   tags:
     - pre_fault_removal
+    - topology_mapper
 
 - name: Ensure topology_information directory exists
   ansible.builtin.file:
@@ -43,6 +44,7 @@
     state: directory
   tags:
     - pre_fault_removal
+    - topology_mapper
   when: run_uuid is defined and scenario_number is defined and run_number is defined
 
 - name: Copy content to file(s)
@@ -52,6 +54,7 @@
   with_items: "{{ topology_responses.results }}"
   tags:
     - pre_fault_removal
+    - topology_mapper
   when: run_uuid is defined and scenario_number is defined and run_number is defined
 
 - name: Upload structured-unstructured outputs to S3
@@ -62,4 +65,5 @@
     region: "us-east-2"
   tags:
     - pre_fault_removal
+    - topology_mapper
   when: run_uuid is defined and scenario_number is defined and run_number is defined
