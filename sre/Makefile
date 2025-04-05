@@ -10,6 +10,8 @@ NUMBER_OF_RUNS = 1
 FINOPS_SCENARIOS := 37
 HOTEL_RESERVATION_SCENARIOS := 102
 
+ENABLE_TOPOLOGY_MAPPER ?= false
+
 IS_DEBUG_SCENARIO ?= true
 IS_FINOPS_SCENARIO := $(shell echo "$(FINOPS_SCENARIOS)" | grep -w "$(INCIDENT_NUMBER)" > /dev/null && echo "true" || echo "false")
 IS_HOTEL_RESERVATION_SCENARIO := $(shell echo "$(HOTEL_RESERVATION_SCENARIOS)" | grep -w "$(INCIDENT_NUMBER)" > /dev/null && echo "true" || echo "false")
@@ -100,7 +102,11 @@ else
 		--extra-vars "incident_number=$(INCIDENT_NUMBER)" \
 		--extra-vars "sample_application=$(SAMPLE_APPLICATION)"
 endif
-	ansible-playbook -v base.yaml --tags "post_fault_injection"
+ifeq ($(ENABLE_TOPOLOGY_MAPPER),true)
+	ansible-playbook -v base.yaml --tags "post_fault_injection" 
+else
+	ansible-playbook -v base.yaml --tags "post_fault_injection" --skip-tags "topology_mapper"
+endif
 
 .PHONY: remove_incident_fault
 remove_incident_fault: ## Removes the fault used in a specific incident
