@@ -11,6 +11,7 @@ FINOPS_SCENARIOS := 37
 HOTEL_RESERVATION_SCENARIOS := 102
 
 ENABLE_TOPOLOGY_MAPPER ?= false
+BENCHMARK_SCORING ?= false
 
 IS_DEBUG_SCENARIO ?= true
 IS_FINOPS_SCENARIO := $(shell echo "$(FINOPS_SCENARIOS)" | grep -w "$(INCIDENT_NUMBER)" > /dev/null && echo "true" || echo "false")
@@ -110,7 +111,10 @@ endif
 
 .PHONY: remove_incident_fault
 remove_incident_fault: ## Removes the fault used in a specific incident
+ifeq ($(BENCHMARK_SCORING),true)
 	ansible-playbook -v base.yaml --tags "pre_fault_removal"
+else
+	ansible-playbook -v base.yaml --tags "pre_fault_removal" --skip-tags "no_scoring"
 ifeq ($(IS_DEBUG_SCENARIO),true)
 	ansible-playbook -v base.yaml --tags "incident_$(INCIDENT_NUMBER)" \
 		--extra-vars "debug=true" \
