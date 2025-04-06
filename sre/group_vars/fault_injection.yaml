@@ -13,6 +13,8 @@ chaos_mesh_chart_version: 2.7.1
 # Default fault injection-removal values
 is_fault_injection: false
 is_fault_removal: false
+is_topology_mapper_enabled: false
+is_benchmark_scoring: false
 
 # Chaos Mesh-based Faults
 is_install_chaos_mesh: false

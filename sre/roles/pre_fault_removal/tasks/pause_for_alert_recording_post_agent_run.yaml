@@ -2,6 +2,6 @@
 - name: Pause for 600 seconds pre-fault removal for alert recording
   pause:
     seconds: 600
-  when: not sre_bench_runner
-  tags: [pre_fault_removal, no_scoring]
+  when: not sre_bench_runner and not is_benchmark_scoring 
+  tags: pre_fault_removal
 

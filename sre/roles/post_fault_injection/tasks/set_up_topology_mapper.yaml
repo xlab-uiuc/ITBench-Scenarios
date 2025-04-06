@@ -7,9 +7,13 @@
     release_namespace: "{{ topology_mapper_namespace_project_name }}"
     state: present
     wait: true
-  tags: [ post_fault_injection, topology_mapper ]
+  tags: 
+    - post_fault_injection
+  when: is_topology_mapper_enabled
 
 - name: Pause for 5 minutes for the topology to be available
   ansible.builtin.pause:
     minutes: 5
-  tags: [ post_fault_injection, topology_mapper ]
+  tags: 
+    - post_fault_injection
+  when: is_topology_mapper_enabled

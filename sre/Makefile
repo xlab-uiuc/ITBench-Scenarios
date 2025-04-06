@@ -103,19 +103,11 @@ else
 		--extra-vars "incident_number=$(INCIDENT_NUMBER)" \
 		--extra-vars "sample_application=$(SAMPLE_APPLICATION)"
 endif
-ifeq ($(ENABLE_TOPOLOGY_MAPPER),true)
 	ansible-playbook -v base.yaml --tags "post_fault_injection" 
-else
-	ansible-playbook -v base.yaml --tags "post_fault_injection" --skip-tags "topology_mapper"
-endif
 
 .PHONY: remove_incident_fault
 remove_incident_fault: ## Removes the fault used in a specific incident
-ifeq ($(BENCHMARK_SCORING),true)
 	ansible-playbook -v base.yaml --tags "pre_fault_removal"
-else
-	ansible-playbook -v base.yaml --tags "pre_fault_removal" --skip-tags "no_scoring"
-endif
 ifeq ($(IS_DEBUG_SCENARIO),true)
 	ansible-playbook -v base.yaml --tags "incident_$(INCIDENT_NUMBER)" \
 		--extra-vars "debug=true" \
