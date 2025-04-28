@@ -95,8 +95,8 @@
               cpu: 10m
               memory: 250Mi
             limits:
-              memory: 512Mi
-        cart:
+              memory: 500Mi
+        cartService:
           resources:
             requests:
               cpu: 25m
@@ -131,7 +131,11 @@
               cpu: 25m
               memory: 300Mi
             limits:
+<<<<<<< HEAD
               memory: 512Mi
+=======
+              memory: 500Mi
+>>>>>>> 42b4a21 (Fully remove topology mapper)
         frontend:
           resources:
             requests:
@@ -158,12 +162,25 @@
             requests:
               cpu: 25m
               memory: 550Mi
+<<<<<<< HEAD
             limits:
               memory: 800Mi
         load-generator:
           envOverrides:
             - name: LOCUST_BROWSER_TRAFFIC_ENABLED
               value: "false"
+=======
+            limits:
+               memory: 700Mi
+        loadgenerator:
+          imageOverride:
+            repository: quay.io/it-bench/loadgenerator
+            tag: "0.3"
+          resources:
+            limits:
+              memory: 2500Mi
+        imageprovider:
+>>>>>>> 42b4a21 (Fully remove topology mapper)
           resources:
             requests:
               cpu: 100m
@@ -190,7 +207,13 @@
             requests:
               cpu: 50m
               memory: 100Mi
+<<<<<<< HEAD
         shipping:
+=======
+            limits:
+              memory: 700Mi
+        shippingService:
+>>>>>>> 42b4a21 (Fully remove topology mapper)
           resources:
             requests:
               cpu: 10m
