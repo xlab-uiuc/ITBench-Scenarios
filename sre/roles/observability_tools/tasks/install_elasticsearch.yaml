@@ -19,6 +19,7 @@
         replicaCount: 1
         persistence:
           size: "8Gi"
+        resourcesPreset: "large"
       coordinating:
         replicaCount: 1
       ingest:

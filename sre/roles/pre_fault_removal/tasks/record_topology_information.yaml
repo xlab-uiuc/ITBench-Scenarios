@@ -36,6 +36,7 @@
   until: topology_responses is succeeded
   tags: 
     - pre_fault_removal
+  when: is_topology_mapper_enabled
 
 - name: Ensure topology_information directory exists
   ansible.builtin.file:

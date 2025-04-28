@@ -6,5 +6,6 @@
     release_namespace: "{{ topology_mapper_namespace_project_name }}"
     state: absent
     wait: true
+  when: is_topology_mapper_enabled
   tags:
     - pre_fault_removal
