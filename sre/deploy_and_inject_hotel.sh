@@ -1,5 +1,5 @@
-source /home/yiming34/tianyin_group/xlab-itbench/sre/venv/bin/activate
-cd /home/yiming34/tianyin_group/xlab-itbench/sre
+source /users/yimingsu/xlab-itbench/sre/venv/bin/activate
+cd /users/yimingsu/xlab-itbench/sre
 which python3
 make deploy_observability_stack
 make deploy_hotel_reservation
