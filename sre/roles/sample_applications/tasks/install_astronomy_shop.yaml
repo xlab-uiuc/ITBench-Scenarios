@@ -132,10 +132,14 @@
               memory: 300Mi
             limits:
 <<<<<<< HEAD
+<<<<<<< HEAD
               memory: 512Mi
 =======
               memory: 500Mi
 >>>>>>> 42b4a21 (Fully remove topology mapper)
+=======
+              memory: 500Mi
+>>>>>>> refs/remotes/origin/remote-topology-mapper
         frontend:
           resources:
             requests:
@@ -163,6 +167,7 @@
               cpu: 25m
               memory: 550Mi
 <<<<<<< HEAD
+<<<<<<< HEAD
             limits:
               memory: 800Mi
         load-generator:
@@ -170,6 +175,8 @@
             - name: LOCUST_BROWSER_TRAFFIC_ENABLED
               value: "false"
 =======
+=======
+>>>>>>> refs/remotes/origin/remote-topology-mapper
             limits:
                memory: 700Mi
         loadgenerator:
@@ -208,8 +215,11 @@
               cpu: 50m
               memory: 100Mi
 <<<<<<< HEAD
+<<<<<<< HEAD
         shipping:
 =======
+=======
+>>>>>>> refs/remotes/origin/remote-topology-mapper
             limits:
               memory: 700Mi
         shippingService:
